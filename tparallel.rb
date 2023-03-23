@@ -5,20 +5,20 @@
 class Tparallel < Formula
   desc "tparallel detects inappropriate usage of t.Parallel() method in your Go test codes"
   homepage "https://github.com/moricho/tparallel"
-  version "0.3.0"
+  version "0.3.1"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/moricho/tparallel/releases/download/v0.3.0/tparallel_Darwin_arm64.tar.gz"
-      sha256 "14f17dbbba85df9e4a1cacc475ac036a9628c57c582488d4440ca4b1946810a9"
+      url "https://github.com/moricho/tparallel/releases/download/v0.3.1/tparallel_Darwin_arm64.tar.gz"
+      sha256 "25ff139d01b08d82f79ff4230db229a306ef871e09780ee1e55ab4220bba9804"
 
       def install
         bin.install "tparallel"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/moricho/tparallel/releases/download/v0.3.0/tparallel_Darwin_x86_64.tar.gz"
-      sha256 "9c132725da8fd6f046f1f9ef88a1ffa4f6e4e70f5e0a188590d9fa8b0fc3db3b"
+      url "https://github.com/moricho/tparallel/releases/download/v0.3.1/tparallel_Darwin_x86_64.tar.gz"
+      sha256 "5e98cd17dd22b21373038c04efb8f1acd35912a03b7e5ba2ca29b00883b3fe25"
 
       def install
         bin.install "tparallel"
@@ -28,16 +28,16 @@ class Tparallel < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/moricho/tparallel/releases/download/v0.3.0/tparallel_Linux_arm64.tar.gz"
-      sha256 "27b4bf6286b232e2fd169c744ce06bb2560af47c2ea98cdd030859abb205d26d"
+      url "https://github.com/moricho/tparallel/releases/download/v0.3.1/tparallel_Linux_arm64.tar.gz"
+      sha256 "a70900a3b108437b52b136c8888f3c62f583d893a37257a1d3de1472b06fe06b"
 
       def install
         bin.install "tparallel"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/moricho/tparallel/releases/download/v0.3.0/tparallel_Linux_x86_64.tar.gz"
-      sha256 "9285497a837727e9064d4e2eac4893e1253f0611c60a6fe1130623b5b755b391"
+      url "https://github.com/moricho/tparallel/releases/download/v0.3.1/tparallel_Linux_x86_64.tar.gz"
+      sha256 "abe6109f32f503aff642c8d6cd35e703cd8a9ccaf386feef07ae3cc2808ee94a"
 
       def install
         bin.install "tparallel"
