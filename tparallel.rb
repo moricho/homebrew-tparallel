@@ -5,20 +5,20 @@
 class Tparallel < Formula
   desc "tparallel detects inappropriate usage of t.Parallel() method in your Go test codes"
   homepage "https://github.com/moricho/tparallel"
-  version "0.3.1"
+  version "0.3.2"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/moricho/tparallel/releases/download/v0.3.1/tparallel_Darwin_arm64.tar.gz"
-      sha256 "25ff139d01b08d82f79ff4230db229a306ef871e09780ee1e55ab4220bba9804"
+    on_intel do
+      url "https://github.com/moricho/tparallel/releases/download/v0.3.2/tparallel_Darwin_x86_64.tar.gz"
+      sha256 "145117a55cc878b03155603c5e17adebcbaa3c34e52ca5e5a82f07959b4d3060"
 
       def install
         bin.install "tparallel"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/moricho/tparallel/releases/download/v0.3.1/tparallel_Darwin_x86_64.tar.gz"
-      sha256 "5e98cd17dd22b21373038c04efb8f1acd35912a03b7e5ba2ca29b00883b3fe25"
+    on_arm do
+      url "https://github.com/moricho/tparallel/releases/download/v0.3.2/tparallel_Darwin_arm64.tar.gz"
+      sha256 "acc5da51dbf58bc09456d6e020bc5b608962c942076f7f546e579b508c15b06f"
 
       def install
         bin.install "tparallel"
@@ -27,25 +27,29 @@ class Tparallel < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/moricho/tparallel/releases/download/v0.3.1/tparallel_Linux_arm64.tar.gz"
-      sha256 "a70900a3b108437b52b136c8888f3c62f583d893a37257a1d3de1472b06fe06b"
+    on_intel do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/moricho/tparallel/releases/download/v0.3.2/tparallel_Linux_x86_64.tar.gz"
+        sha256 "7262e6c3dc3ce16ba2ba5d28e4ad31c761c587f0a54c5bee4d4831e5ca083e93"
 
-      def install
-        bin.install "tparallel"
+        def install
+          bin.install "tparallel"
+        end
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/moricho/tparallel/releases/download/v0.3.1/tparallel_Linux_x86_64.tar.gz"
-      sha256 "abe6109f32f503aff642c8d6cd35e703cd8a9ccaf386feef07ae3cc2808ee94a"
+    on_arm do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/moricho/tparallel/releases/download/v0.3.2/tparallel_Linux_arm64.tar.gz"
+        sha256 "f5214a48da3f2694d405770ece886806f8da7398abbc66912745a87a037b2858"
 
-      def install
-        bin.install "tparallel"
+        def install
+          bin.install "tparallel"
+        end
       end
     end
   end
 
   test do
-    system "#{bin}/goreleaser -v"
+    system "#{bin}/tparallel help"
   end
 end
